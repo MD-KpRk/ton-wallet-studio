@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TonWalletStudio.Controllers;
 
 namespace TonWalletGenerator
 {
@@ -19,6 +20,8 @@ namespace TonWalletGenerator
         public MainWindow()
         {
             InitializeComponent();
+            NavigationController.Instance.SetMainFrame(MainFrame);
+
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -27,6 +30,11 @@ namespace TonWalletGenerator
             {
                 DragMove(); 
             }
+        }
+
+        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

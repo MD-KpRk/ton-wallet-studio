@@ -48,14 +48,55 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="0 30 0 0" Grid.Column="0" Orientation="Vertical" >
-            <TextBlock Text="Генератор кошельков" TextWrapping="Wrap" Foreground="#94A4B5" TextAlignment="Center" FontSize="24" FontFamily="Open Sans" FontWeight="SemiBold" />
+        <StackPanel Margin="0 10 0 0" Grid.Column="0" Orientation="Vertical" >
+
+            <Button HorizontalAlignment="Left" Width="80" Height="20" Background="Transparent" BorderThickness="0" Click="Button_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!-- Стрелка влево -->
+                    <TextBlock Text="←" FontSize="12" Foreground="#94A4B5" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                    <!-- Надпись "Назад" -->
+                    <TextBlock Text="Назад" FontSize="12" Foreground="#94A4B5" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <!-- Эффект при наведении -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2A2F38"/>
+                                <!-- Тёмный фон при наведении -->
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <!-- Эффект при нажатии -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#1F252B"/>
+                                <!-- Ещё темнее при нажатии -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <TextBlock Margin="0 20 0 0" Text="Генератор кошельков" TextWrapping="Wrap" Foreground="#94A4B5" TextAlignment="Center" FontSize="20" FontFamily="Open Sans" FontWeight="SemiBold" />
 
             <Button Style="{StaticResource MainMenuButtonStyle}" Margin="20 20 20 10" >
                 <TextBlock  Margin="10 0 10 0" Text="Запустить генерацию" TextWrapping="Wrap" Foreground="#94A4B5" TextAlignment="Center" FontSize="18" FontFamily="Open Sans" FontWeight="SemiBold"/>
             </Button>
 
-            <Separator Margin="20 0 20 10" />
+            <Separator Margin="20 20 20 10" />
             
             <TextBlock  Margin="10 0 10 0" Text="Параметры генерации" TextWrapping="Wrap" Foreground="#94A4B5" TextAlignment="Center" FontSize="12" FontFamily="Open Sans" FontWeight="SemiBold"/>
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TonWalletStudio.Controllers;
 
 namespace TonWalletStudio.Pages
 {
@@ -23,6 +24,12 @@ namespace TonWalletStudio.Pages
         public MainMenuPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WalletGeneratorPage wpage = new WalletGeneratorPage();
+            NavigationController.Instance.NavigateToPage(wpage);
         }
     }
 }
